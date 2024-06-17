@@ -18,7 +18,7 @@ export default function ChatContainer() {
   useEffect(() => {
     const accessToken = sessionStorage.getItem("accessToken");
     // console.log("유즈이펙트 확인!!!!")
-    const socket = new SockJS("https://j10d202.p.ssafy.io/ws-stomp");
+    const socket = new SockJS("https://toogui.site/ws-stomp");
     // console.log('웹소켓 상태 확인 :', SockJS)
     stompClient.current = Stomp.over(socket);
     // console.log("스톰프 클라이언트 확인 :", stompClient.current)

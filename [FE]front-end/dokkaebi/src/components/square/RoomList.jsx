@@ -55,7 +55,7 @@ export default function RoomList() {
       // console.log("roomId 확인 222:", room.id);
       axios
         .post(
-          `https://j10d202.p.ssafy.io/api/room/enter`,
+          `https://toogui.site/api/room/enter`,
           { roomId: room.id, password: "" },
           {
             headers: {
@@ -86,7 +86,7 @@ export default function RoomList() {
     const fetchRoomList = async () => {
       try {
         const response = await axios.get(
-          `https://j10d202.p.ssafy.io/api/square/list/${channelId}`,
+          `https://toogui.site/api/square/list/${channelId}`,
           {
             headers: { Authorization: `Bearer ${accessToken}` },
           }

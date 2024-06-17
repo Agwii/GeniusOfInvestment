@@ -49,7 +49,7 @@ const Sidebar = ({ toggleSidebar }) => {
   // 친구 목록 불러오기
   const friendList = async () => {
     try {
-      const res = await axios.get(`https://j10d202.p.ssafy.io/api/friend/${userId}/list`, {
+      const res = await axios.get(`https://toogui.site/api/friend/${userId}/list`, {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
       console.log("친구 목록 불러오기 :", res)
@@ -74,7 +74,7 @@ const Sidebar = ({ toggleSidebar }) => {
   const friendDelete = async (friendListId) => {
     try {
       console.log("friendListId 확인 :", friendListId)
-      await axios.delete(`https://j10d202.p.ssafy.io/api/friend/${userId}/delete`, {
+      await axios.delete(`https://toogui.site/api/friend/${userId}/delete`, {
         data: { friendListId: friendListId }, // delete 요청은 Request.Body 형식이 아닌 data에 감싸서 보내기
         headers : {  Authorization: `Bearer ${accessToken}` },
       });
@@ -121,7 +121,7 @@ const Sidebar = ({ toggleSidebar }) => {
       };
   
       const establishConnection = () => {
-        const sock = new SockJS('https://j10d202.p.ssafy.io/ws-stomp');
+        const sock = new SockJS('https://toogui.site/ws-stomp');
         client.current = Stomp.over(sock);
   
         client.current.connect({}, () => {
@@ -206,7 +206,7 @@ const Sidebar = ({ toggleSidebar }) => {
 
   // 친구 요청 알림에 대한 새로운 웹소켓 연결
   useEffect(() => {
-    const sock = new SockJS('https://j10d202.p.ssafy.io/ws-stomp');
+    const sock = new SockJS('https://toogui.site/ws-stomp');
     alarmClient.current = Stomp.over(sock);
   
     alarmClient.current.connect({}, () => {

@@ -22,7 +22,7 @@ export default function LastTurnStockInfo({
     setTimeout(() => {
       axios
         .put(
-          `https://j10d202.p.ssafy.io/api/game/end/${roomId}`,
+          `https://toogui.site/api/game/end/${roomId}`,
           {},
           {
             headers: {

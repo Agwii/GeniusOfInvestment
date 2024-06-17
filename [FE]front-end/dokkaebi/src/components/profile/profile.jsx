@@ -61,7 +61,7 @@ export default function Profile() {
     }
 
     try {
-      await axios.post(`https://j10d202.p.ssafy.io/api/users/${userId}/exist/nick-name`, {
+      await axios.post(`https://toogui.site/api/users/${userId}/exist/nick-name`, {
         nickName: nickname
       }, {
         headers: {
@@ -122,7 +122,7 @@ export default function Profile() {
     if (nickname && selectedImage) {
       try {
         // 백엔드로 PUT 요청 보내기
-        const res = await axios.put(`https://j10d202.p.ssafy.io/api/users/${userId}/info`, {
+        const res = await axios.put(`https://toogui.site/api/users/${userId}/info`, {
           nickName: nickname,
           imageId: selectedImage.id, // 변경된 이미지의 ID
         }, {
@@ -149,7 +149,7 @@ export default function Profile() {
   };
 
   const KAKAO_OUT_URL =
-  "https://j10d202.p.ssafy.io/oauth2/authorization/kakao?redirect_uri=https://j10d202.p.ssafy.io/hub&mode=unlink";
+  "https://toogui.site/oauth2/authorization/kakao?redirect_uri=https://toogui.site/hub&mode=unlink";
 
   // 회원탈퇴
   const handleUserExit = () => {
@@ -174,7 +174,7 @@ export default function Profile() {
   useEffect(() => {
     const fetchUserInfo = async () => {
       try {
-        const res = await axios.get(`https://j10d202.p.ssafy.io/api/users/${userId}`, {
+        const res = await axios.get(`https://toogui.site/api/users/${userId}`, {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
         // console.log("리스폰스 확인", res)

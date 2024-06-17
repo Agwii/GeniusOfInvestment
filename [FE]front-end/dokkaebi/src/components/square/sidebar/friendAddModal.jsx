@@ -16,7 +16,7 @@ const FriendAddModal = ({ onClose }) => {
 
   const handleAddFriend = async () => {
     try {
-      const response = await axios.post(`https://j10d202.p.ssafy.io/api/alarm/send/invitation`, {
+      const response = await axios.post(`https://toogui.site/api/alarm/send/invitation`, {
         id: userId,
         friendNickName: searchTerm,
       }, {

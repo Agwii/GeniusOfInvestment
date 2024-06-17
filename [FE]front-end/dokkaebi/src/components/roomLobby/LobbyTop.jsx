@@ -44,30 +44,11 @@ export default function LobbyTop({ userList, isStart }) {
     }
   }, [isStart]);
 
-  // const handleBackButtonClick = () => {
-  //   axios
-  //     .delete(`https://j10d202.p.ssafy.io/api/room/exit/${roomId}`, {
-  //       headers: {
-  //         Authorization: `Bearer ${accessToken}`,
-  //       },
-  //     })
-  //     .then((res) => {
-  //       console.log(res);
-  //       console.log("방 나가기 성공");
-  //       sessionStorage.removeItem("roomId");
-  //       navigate(`/square/${channelId}`);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //       console.log("방 나가기 실패");
-  //     });
-  // };
-
   const handleReadyButtonClick = () => {
     playGameStartSound();
     axios
       .post(
-        `https://j10d202.p.ssafy.io/api/room/ready/${roomId}`,
+        `https://toogui.site/api/room/ready/${roomId}`,
         {},
         {
           headers: {
@@ -95,7 +76,7 @@ export default function LobbyTop({ userList, isStart }) {
       return;
     } else {
       axios
-        .get(`https://j10d202.p.ssafy.io/api/game?id=${roomId}`, {
+        .get(`https://toogui.site/api/game?id=${roomId}`, {
           params: { id: roomId },
           headers: {
             Authorization: `Bearer ${accessToken}`,

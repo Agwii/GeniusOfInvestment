@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { c } from "vite/dist/node/types.d-AKzkD8vd";
 
 export default function AAA() {
   let retryCount = 0;
@@ -18,7 +17,7 @@ export default function AAA() {
 
     axios
       .post(
-        "https://j10d202.p.ssafy.io/api/square/fast",
+        "https://toogui.site/api/square/fast",
         {},
         {
           headers: { Authorization: `Bearer ${accessToken}` },
@@ -36,7 +35,7 @@ export default function AAA() {
 
     axios
       .post(
-        "https://j10d202.p.ssafy.io/api/room/enter",
+        "https://toogui.site/api/room/enter",
         {
           roomId: roomId,
         },
@@ -84,5 +83,5 @@ export default function AAA() {
       });
   };
 
-  return <div>AAA</div>;
+  return <div></div>;
 }

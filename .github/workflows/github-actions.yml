@@ -1,0 +1,83 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+# This workflow will build a Java project with Gradle and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-gradle
+
+name: Deploy to EC2 with toogui
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    # spring을 gradle을 통해 빌드
+    - name: Build with Gradle
+      run: |
+        chmod +x ./gradlew
+        ./gradlew clean build -x test
+      working-directory: ./[BE]GeniusOfInvestment
+
+    - name: Login to Docker Hub using Access Token
+      run: echo "${{ secrets.DOCKER_HUB_TOKEN }}" | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
+
+    - name: Build and push backend image
+      run: |
+        docker build \
+          --build-arg JASYPT_KEY=${{ secrets.JASYPT_KEY }} \
+          -t ${{ secrets.DOCKER_HUB_USERNAME }}/toogui_back:latest \
+          -f ./[BE]GeniusOfInvestment/Dockerfile ./[BE]GeniusOfInvestment
+        docker push ${{ secrets.DOCKER_HUB_USERNAME }}/toogui_back:latest
+
+    - name: Build and push frontend image
+      run: |
+        docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/toogui_front:latest -f ./[FE]front-end/dokkaebi/Dockerfile ./[FE]front-end/dokkaebi
+        docker push ${{ secrets.DOCKER_HUB_USERNAME }}/toogui_front:latest
+
+    # docker compose up
+    - name: Deploy to EC2 server using ssh
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ubuntu
+        key: ${{ secrets.KEY }}
+        script: |
+          keep_containers=("toogui-mariadb" "redis" "redis-refresh")
+          all_containers=$(docker ps -aq)
+
+          containers_to_remove=""
+          for container_id in $all_containers; do
+            container_name=$(docker inspect --format='{{.Name}}' $container_id)
+            container_name=${container_name#/}  # Remove leading slash
+            if ! [[ " ${keep_containers[@]} " =~ " $container_name " ]]; then
+              containers_to_remove="$containers_to_remove $container_id"
+            fi
+          done
+
+          if [ -n "$containers_to_remove" ]; then
+            sudo docker rm -f $containers_to_remove
+          else
+            echo "No containers to remove"
+          fi
+          
+          sudo docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/toogui_back:latest
+          sudo docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/toogui_front:latest
+          sudo docker compose up -d
+          docker image prune -f

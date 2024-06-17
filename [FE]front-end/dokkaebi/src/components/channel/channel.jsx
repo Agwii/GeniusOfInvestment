@@ -16,7 +16,7 @@ export default function Channel() {
   const fetchChannelUserCnt = async () => {
     try {
       const res = await axios.get(
-        `https://j10d202.p.ssafy.io/api/channel/listc`,
+        `https://toogui.site/api/channel/listc`,
         {
           headers: { Authorization: `Bearer ${accessToken}` },
         }
@@ -41,7 +41,7 @@ export default function Channel() {
     try {
       // console.log("보내는 토큰 확인 :", accessToken);
       const res = await axios.post(
-        `https://j10d202.p.ssafy.io/api/channel/enterc/${channelId}`,
+        `https://toogui.site/api/channel/enterc/${channelId}`,
         {},
         {
           headers: { Authorization: `Bearer ${accessToken}` },
@@ -68,7 +68,7 @@ export default function Channel() {
       if (channelId) {
         try {
           await axios.delete(
-            `https://j10d202.p.ssafy.io/api/channel/exitc`, {
+            `https://toogui.site/api/channel/exitc`, {
               headers: { Authorization: `Bearer ${accessToken}` },
             }
           );

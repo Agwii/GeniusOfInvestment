@@ -1,5 +1,7 @@
 import React, { useRef } from "react";
 import styles from "./Result.module.css";
+
+
 import { useNavigate } from "react-router-dom";
 import fUser from "../../images/gamePlay/1st.png";
 import sUser from "../../images/gamePlay/2nd.png";

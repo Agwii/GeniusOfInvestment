@@ -33,7 +33,7 @@ export default function userReadyRoom() {
   const roomStompRef = useRef(null);
   const userNickname = useSelector((state) => state.auth.userNickname);
   const channelId = sessionStorage.getItem("channelId");
-  const socketUrl = "https://j10d202.p.ssafy.io/ws-stomp";
+  const socketUrl = "https://toogui.site/ws-stomp";
   const [response, setResponse] = useState(location.state.response.data);
   const [userList, setUserList] = useState([]);
   const [chatList, setChatList] = useState([]);
@@ -43,7 +43,7 @@ export default function userReadyRoom() {
   useEffect(() => {
     // 새로고침시 유저 리스트 다시 받아오게하기 위한 코드
     axios
-      .get(`https://j10d202.p.ssafy.io/api/room/userlist/${roomId}`, {
+      .get(`https://toogui.site/api/room/userlist/${roomId}`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -237,7 +237,7 @@ export default function userReadyRoom() {
       // console.log("내보내려는 유저 id :", userIdToKick)
       // console.log("현재 방 번호 :", roomId)
       await axios.put(
-        "https://j10d202.p.ssafy.io/api/room/kick",
+        "https://toogui.site/api/room/kick",
         {
           userId: userIdToKick,
           roomId: roomId,
@@ -248,7 +248,7 @@ export default function userReadyRoom() {
           },
         }
       );
-      alert("강퇴했어요");
+      alert("플레이어를 강퇴했습니다.");
       // 강퇴 처리 후유저 리스트를 다시 업데이트
       // setUserList(response.data);
     } catch (error) {

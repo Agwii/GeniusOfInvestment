@@ -56,7 +56,7 @@ export default function getUserLogin() {
     try {
       // API 요청: 닉네임 중복 검사 및 업데이트
       // console.log("설정한 닉네임 :", nickname)
-      const response = await axios.post(`https://j10d202.p.ssafy.io/api/users/${userId}/exist/nick-name`, {
+      const response = await axios.post(`https://toogui.site/api/users/${userId}/exist/nick-name`, {
         nickName: nickname,
       }, {
         headers: {
@@ -121,7 +121,7 @@ export default function getUserLogin() {
     if (nickname && userProfileImage) {
       try {
         // 여기에 회원가입 정보를 백엔드로 전송하는 API 호출 로직 추가
-        await axios.put(`https://j10d202.p.ssafy.io/api/users/${userId}/info`, {
+        await axios.put(`https://toogui.site/api/users/${userId}/info`, {
           nickName: nickname,
           imageId: userProfileImage.id,
         }, {

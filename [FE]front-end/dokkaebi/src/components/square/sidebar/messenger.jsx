@@ -35,7 +35,7 @@ const Messenger = ({ selectedFriend, toggleMessageBar, handleSendMSG, isFriendCh
       if (selectedFriend) {
         const friendListId = selectedFriend.friendListId;
         try {
-          const response = await axios.get(`https://j10d202.p.ssafy.io/api/chat/${friendListId}/list`, {
+          const response = await axios.get(`https://toogui.site/api/chat/${friendListId}/list`, {
             headers: { Authorization: `Bearer ${accessToken}` },
           });
           if (response.status === 200) {

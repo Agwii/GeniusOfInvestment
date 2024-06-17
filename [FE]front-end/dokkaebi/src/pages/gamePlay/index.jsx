@@ -39,7 +39,7 @@ export default function GamePlay() {
 
   const stompClientRef = useRef(null); // 구독하는 사람
   const gameStompRef = useRef(null); // 구독 식별자 번호
-  const socketUrl = "https://j10d202.p.ssafy.io/ws-stomp";
+  const socketUrl = "https://toogui.site/ws-stomp";
 
   const isManager = sessionStorage.getItem("isManager");
   const [userList, setUserList] = useState([]);
@@ -113,7 +113,7 @@ export default function GamePlay() {
       //     });
       // } else {
       axios
-        .get(`https://j10d202.p.ssafy.io/api/game/next?id=${roomId}`, {
+        .get(`https://toogui.site/api/game/next?id=${roomId}`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -145,7 +145,7 @@ export default function GamePlay() {
     if (isManager === "true") {
       // console.log("방장이므로 게임 시작 요청을 보냅니다.");
       axios
-        .get(`https://j10d202.p.ssafy.io/api/game/start?id=${roomId}`, {
+        .get(`https://toogui.site/api/game/start?id=${roomId}`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -169,7 +169,7 @@ export default function GamePlay() {
     // console.log("레디 버튼 클릭 방 번호 : ", roomId);
     try {
       const response = await axios.put(
-        `https://j10d202.p.ssafy.io/api/game/ready/${roomId}`,
+        `https://toogui.site/api/game/ready/${roomId}`,
         {},
         {
           headers: {
@@ -184,7 +184,7 @@ export default function GamePlay() {
         // 게임 종료 요청
         try {
           const response = await axios.put(
-            `https://j10d202.p.ssafy.io/api/game/end/${roomId}`,
+            `https:/toogui.site/api/game/end/${roomId}`,
             {},
             {
               headers: {
@@ -203,7 +203,7 @@ export default function GamePlay() {
 
   const getMyInfoList = () => {
     axios
-      .get(`https://j10d202.p.ssafy.io/api/stock/infolist?id=${roomId}`, {
+      .get(`https://toogui.site/api/stock/infolist?id=${roomId}`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -219,7 +219,7 @@ export default function GamePlay() {
 
   const exitGame = () => {
     axios
-      .delete(`https://j10d202.p.ssafy.io/api/game/exit/${roomId}`, {
+      .delete(`https://toogui.site/api/game/exit/${roomId}`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -311,7 +311,7 @@ export default function GamePlay() {
                 if (isManager === "true")
                   axios
                     .put(
-                      `https://j10d202.p.ssafy.io/api/game/end/${roomId}`,
+                      `https://toogui.site/api/game/end/${roomId}`,
                       {},
                       {
                         headers: {

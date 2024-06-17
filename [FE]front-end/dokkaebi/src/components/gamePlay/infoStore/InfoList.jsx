@@ -18,7 +18,7 @@ export default function InfoLIst({company, myPoint, setMyPoint}) {
   const getLowStockInfo = () => {
     axios
       .get(
-        `https://j10d202.p.ssafy.io/api/stock/info?id=${roomId}&item=${company}&level=1`,
+        `https://toogui.site/api/stock/info?id=${roomId}&item=${company}&level=1`,
         {
           headers: { Authorization: `Bearer ${accessToken}` },
         }
@@ -45,7 +45,7 @@ export default function InfoLIst({company, myPoint, setMyPoint}) {
   const getHighStockInfo = () => {
     axios
       .get(
-        `https://j10d202.p.ssafy.io/api/stock/info?id=${roomId}&item=${company}&level=2`,
+        `https://toogui.site/api/stock/info?id=${roomId}&item=${company}&level=2`,
         {
           headers: { Authorization: `Bearer ${accessToken}` },
         }

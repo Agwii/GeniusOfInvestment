@@ -41,7 +41,7 @@ export default function choiceModal({ onClose }) {
     try {
       // console.log("userId 확인 :", userId)
       // console.log("accessToken 확인 :", accessToken)
-      const response = await axios.put(`https://j10d202.p.ssafy.io/api/users/${userId}/image-id`, {
+      const response = await axios.put(`https://toogui.site/api/users/${userId}/image-id`, {
         imageId: selectedImageObj.id
       }, {
         headers: {

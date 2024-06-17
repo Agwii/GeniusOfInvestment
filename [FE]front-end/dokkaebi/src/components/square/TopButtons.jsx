@@ -55,7 +55,7 @@ export default function TopButtons() {
     try {
       // 서버로부터 빠른 입장 가능한 방의 정보를 요청
       const response = await axios.post(
-        "https://j10d202.p.ssafy.io/api/square/fast",
+        "https://toogui.site/api/square/fast",
         {},
         {
           headers: { Authorization: `Bearer ${accessToken}` },
@@ -69,7 +69,7 @@ export default function TopButtons() {
         const roomId = response.data.data;
         axios
           .post(
-            "https://j10d202.p.ssafy.io/api/room/enter",
+            "https://toogui.site/api/room/enter",
             {
               roomId: roomId,
             },

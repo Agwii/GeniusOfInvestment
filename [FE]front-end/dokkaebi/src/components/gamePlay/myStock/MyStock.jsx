@@ -17,7 +17,7 @@ export default function MyStock(props) {
   useEffect(() => {
     setTimeout(() => {
       axios
-        .get("https://j10d202.p.ssafy.io/api/stock", {
+        .get("https://toogui.site/api/stock", {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },

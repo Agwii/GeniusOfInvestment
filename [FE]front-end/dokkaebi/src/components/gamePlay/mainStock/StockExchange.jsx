@@ -22,7 +22,7 @@ export default function StockExchange(props) {
 
   useEffect(() => {
     axios
-      .get(`https://j10d202.p.ssafy.io/api/stock/${props.item}/${roomId}`, {
+      .get(`https://toogui.site/api/stock/${props.item}/${roomId}`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -49,7 +49,7 @@ export default function StockExchange(props) {
       // console.log("매수할 주 수:", quantity);
       axios
         .put(
-          `https://j10d202.p.ssafy.io/api/stock/buy`,
+          `https://toogui.site/api/stock/buy`,
           { grId: roomId, item: props.item, share: quantity },
           {
             headers: {
@@ -69,7 +69,7 @@ export default function StockExchange(props) {
     } else if (props.transactionType === "sell") {
       axios
         .put(
-          `https://j10d202.p.ssafy.io/api/stock/sell`,
+          `https://toogui.site/api/stock/sell`,
           { grId: roomId, item: props.item, share: quantity },
           {
             headers: {

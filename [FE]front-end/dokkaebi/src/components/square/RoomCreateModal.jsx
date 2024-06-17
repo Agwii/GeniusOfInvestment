@@ -90,7 +90,7 @@ export default function RoomCreateModal({ onClose, userName }) {
       // console.log("channelId 확인", channelId);
       try {
         const response = await axios.post(
-          "https://j10d202.p.ssafy.io/api/square/create",
+          "https://toogui.site/api/square/create",
           {
             title: isRoomTitle,
             isPrivate: isPrivate,

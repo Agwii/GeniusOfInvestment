@@ -32,7 +32,7 @@ export default function UserList() {
       // console.log("channelId 확인", channelId);
       try {
         const response = await axios.get(
-          `https://j10d202.p.ssafy.io/api/square/channellist/${channelId}`,
+          `https://toogui.site/api/square/channellist/${channelId}`,
           {
             headers: { Authorization: `Bearer ${accessToken}` },
           }

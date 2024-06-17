@@ -36,7 +36,7 @@ export default function RoomSearchModal({ onClose }) {
     // }
     axios
       .post(
-        "https://j10d202.p.ssafy.io/api/room/enter",
+        "https://toogui.site/api/room/enter",
         {
           roomNum: roomNum,
           password: password,

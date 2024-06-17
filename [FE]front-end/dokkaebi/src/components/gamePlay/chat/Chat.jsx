@@ -23,7 +23,7 @@ export default function Chat({ roomId, userNicks }) {
   };
 
   useEffect(() => {
-    const socket = new SockJS("https://j10d202.p.ssafy.io/ws-stomp");
+    const socket = new SockJS("https://toogui.site/ws-stomp");
     client.current = Stomp.over(socket);
     // console.log("스톰프 확인", client.current);
     

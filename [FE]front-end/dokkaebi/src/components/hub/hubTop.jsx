@@ -19,7 +19,7 @@ export default function HubTop() {
     const accessToken = sessionStorage.getItem('accessToken');
     try {
       // 백엔드 서버로 로그아웃 요청 보내기
-      await axios.post('https://j10d202.p.ssafy.io/api/auth/logout', {}, {
+      await axios.post('https://toogui.site/api/auth/logout', {}, {
         headers: {
           Authorization: `Bearer ${accessToken}`, // Authorization 헤더에 액세스 토큰 추가
         },

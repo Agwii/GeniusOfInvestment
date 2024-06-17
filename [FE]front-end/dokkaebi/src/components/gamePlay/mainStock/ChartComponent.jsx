@@ -14,7 +14,7 @@ export default function ChartComponent(props) {
 
   useEffect(() => {
     axios
-      .get(`https://j10d202.p.ssafy.io/api/stock/chart?id=${roomId}&item=${props.item}`,
+      .get(`https://toogui.site/api/stock/chart?id=${roomId}&item=${props.item}`,
       {
         headers: {
           Authorization: `Bearer ${sessionStorage.getItem('accessToken')}`

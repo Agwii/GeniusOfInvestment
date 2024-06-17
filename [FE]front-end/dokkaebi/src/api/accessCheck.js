@@ -20,7 +20,7 @@ export function useAuthCheck() {
     if (accessToken) {
       try {
         await axios.post(
-          "https://j10d202.p.ssafy.io/api/auth/logout",
+          "https://toogui.site/api/auth/logout",
           {},
           {
             headers: { Authorization: `Bearer ${accessToken}` },
@@ -39,7 +39,7 @@ export function useAuthCheck() {
   const requestNewToken = async (accessToken) => {
     try {
       const response = await axios.post(
-        "https://j10d202.p.ssafy.io/api/auth/regenerate-token",
+        "https://toogui.site/api/auth/regenerate-token",
         {},
         {
           headers: { Authorization: `Bearer ${accessToken}` },
@@ -72,7 +72,7 @@ export function useAuthCheck() {
 
     // 토큰 유효성 검증을 위한 API 요청 (사용자 정보 get 요청으로 가져오기)
     try {
-      await axios.get(`https://j10d202.p.ssafy.io/api/users/${userId}`, {
+      await axios.get(`https://toogui.site/api/users/${userId}`, {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
       // 성공적으로 데이터를 받아왔을 때의 처리...

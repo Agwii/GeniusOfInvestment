@@ -3,7 +3,7 @@ spring:
         hibernate:
             naming:
                 implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
-            ddl-auto: none
+            ddl-auto: update
         properties:
             hibernate:
                 show_sql: false
@@ -54,8 +54,8 @@ spring:
                         authorization-grant-type: authorization_code
                         scope: # https://developers.kakao.com/docs/latest/ko/kakaologin/common#user-info
                         #                        redirect-uri: "https://j10d202.p.ssafy.io/login/oauth2/code/kakao"
-                        redirect-uri: "https://j10d202.p.ssafy.io/{action}/oauth2/code/{registrationId}"
-
+                        redirect-uri: "https://toogui.site/{action}/oauth2/code/{registrationId}"
+                        # "https://j10d202.p.ssafy.io/{action}/oauth2/code/{registrationId}"
                         client-name: Kakao
 
                 provider:

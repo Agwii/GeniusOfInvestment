@@ -38,7 +38,7 @@ export default function RoomEnterModal({ onClose, roomId }) {
     const realRoomId = sessionStorage.getItem("roomId");
     axios
       .post(
-        "https://j10d202.p.ssafy.io/api/room/enter",
+        "https://toogui.site/api/room/enter",
         {
           roomId: propsRoomId ? propsRoomId : realRoomId,
           password: isPassword,

@@ -31,7 +31,7 @@ export default function Square() {
     const isManager = sessionStorage.getItem("isManager");
     if (roomId) {
       axios
-        .delete(`https://j10d202.p.ssafy.io/api/room/exit/${roomId}`, {
+        .delete(`https://toogui.site/api/room/exit/${roomId}`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },

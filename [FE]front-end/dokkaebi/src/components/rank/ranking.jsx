@@ -35,7 +35,7 @@ export default function Ranking() {
   useEffect(() => {
     const fetchUserEXP = async () => {
       try {
-        const res = await axios.get(`https://j10d202.p.ssafy.io/api/users/rank`, {
+        const res = await axios.get(`https://toogui.site/api/users/rank`, {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
         // console.log("리스폰스 확인 1 :", res)
@@ -55,7 +55,7 @@ export default function Ranking() {
 
     const fetchMyInfo = async () => {
       try {
-        const res = await axios.get(`https://j10d202.p.ssafy.io/api/users/${userId}/rank`, {
+        const res = await axios.get(`https://toogui.site/api/users/${userId}/rank`, {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
         // console.log("리스폰스 확인 2 :", res)
